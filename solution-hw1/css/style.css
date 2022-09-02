@@ -5,8 +5,15 @@
          border-bottom: 1px solid black;
   }
 
-.link {
+.link {  
+         margin-top: 50px;
+
+         font-size: 18px;
+         font-weight: 500;
+         color: black;
+
          text-align: center;
+         
 }
         
   
