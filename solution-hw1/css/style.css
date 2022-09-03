@@ -21,10 +21,12 @@
          text-decoration: none;
          color: black;
 }
+
 .link a:hover {
          text-decoration: none;
          background: yellow;        
 }
+
 .link a:active {
          color:black;
 }
@@ -44,9 +46,17 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        line-height: 20px;
 }
 
+.collection p {
+        line-height: 22px;
+}
+
+.glink {
+        line-height: 35px;
+
+        text-align: left;
+}
 
 .collection img {
         display: block;
@@ -56,6 +66,29 @@
         border: 1px solid black;
 } 
 
+
+.glink a:hover {
+        background-color: yellow;        
+}
+
+
+.glink img:hover {
+        opacity: 0.5;
+        background: yellow;
+}
+
+
+.glink a:link {
+        text-decoration: none;
+        color: black;
+}
+
+
+.glink a:visited {
+        color: black;
+}
+
+
 .productdetail {
         display: flex;
         flex-direction: column;
@@ -63,13 +96,30 @@
         align-items: center;
 }
 
+
 .productdetail img {
         display: block;
         margin-left: auto;
         margin-right: auto;
 
+        border: 1.5px solid black;
+
 }
+
 
 select { 
         width: 15em;
+        margin-bottom: 30px;
+}
+
+
+.selection p {
+        line-height: 22px;
+}
+
+button {
+        margin-left: 50px;
+}
+button:hover{
+        background-color: yellow;
 }
