@@ -52,10 +52,6 @@
         line-height: 22px;
 }
 
-figure {
-        width: 200px;
-}
-
 .glink  {
         display: flex;
         flex-direction: column;
