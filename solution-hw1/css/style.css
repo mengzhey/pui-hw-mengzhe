@@ -69,18 +69,15 @@
         border: 1px solid black;
 } 
 
-
 .glink a:hover {
         background: yellow;        
 }
-
 
 .glink img:hover {
         width: 200px;
         opacity: 0.5;
         background-color:  yellow;
 }
-
 
 .glink a:link {
         text-decoration: none;
@@ -92,14 +89,12 @@
         color: black;
 }
 
-
 .productdetail {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
 }
-
 
 .productdetail img {
         display: block;
@@ -110,12 +105,10 @@
 
 }
 
-
 select { 
         width: 15em;
         margin-bottom: 30px;
 }
-
 
 .selection p {
         line-height: 22px;
