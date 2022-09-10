@@ -1,10 +1,11 @@
 body {
-        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-family: 'Courier New', Courier, monospace
 }
 
 #logo-content {
         display: flex;
         justify-content:flex-start;
+        column-gap: 40px;
        
 }
 
@@ -23,6 +24,11 @@ body {
 nav {  
         border-bottom: #EEEEEE solid 1px;
         width: 70px;
+        height: 50px;
+        margin-top: 130px;
+        box-sizing: border-box;
+        border-bottom: solid;
+
         flex: 70%;
         display: flex;
         flex-direction: row;
@@ -32,18 +38,16 @@ nav {
 
 nav > a { 
         border: none;
-        margin: 10px;
+        margin: 40px;
         justify-content: flex-end;
         padding: 2px 8px;
-        margin-left: 500px;
+        align-items: center;
+  
         font-size: 25px;
         
 }
 
-.pd {
-        
-        justify-items: flex-end;
-}
+
 
 nav a:link {
          text-decoration: none;
