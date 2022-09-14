@@ -25,14 +25,14 @@ body {
 
 
 nav {  
-        width: 800px;
-        height: 50px;
         margin-top: 130px;
         box-sizing: border-box;
         border-bottom: solid 3px;
         
 
         display: flex;
+        width: 900px;
+        height: 50px;
         flex-direction: row;
         align-items: center;
         justify-content: flex-end;
@@ -42,14 +42,18 @@ nav {
 nav > a { 
         border: none;
         margin: 40px;
+        margin-right: 0px;
         justify-content: flex-end;
-        padding: 2px 8px;
         align-items: center;
   
         font-size: 25px;
         
 }
 
+.slogan {
+         font-size: 20px;
+         margin-top: 15px;
+}
 nav a:link {
          text-decoration: none;
          color: black;
@@ -68,12 +72,6 @@ nav a:hover {
          color: black;
 }
 
-.title {
-        padding-top: 50px;
-        font-size: 20px;
-        
-        text-align: center;
-}
 
 .collection {
         column-gap: 100px;
