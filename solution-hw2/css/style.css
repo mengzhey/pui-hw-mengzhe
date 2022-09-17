@@ -1,5 +1,8 @@
 body {
-        font-family: 'Courier New', Courier, monospace
+        font-family: 'Courier New', Courier, monospace;
+        border: 1px solid black;
+        padding-bottom: 20px;
+
 }
 
 #logo-content {
@@ -224,7 +227,7 @@ button:hover{
         align-content: flex-start;
         column-gap: 30px;
 
-        border-bottom: 2px solid black;
+        border-bottom: 3px solid black;
 
 }
        
