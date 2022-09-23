@@ -1,73 +1,104 @@
+let select = document.querySelector('#glazingOptions');
 let rollprice = [
     {
-        pricetag: '0',
+      priceTag: 'Keep Origin',
+      priceValue: '0',
     },
     {
-        pricetag: '0',
+      priceTag: 'Sugar Milk',
+      priceValue: '0',
     },
     {
-        pricetag: '0.5',
+      priceTag: 'Vanila Milk',
+      priceValue: '0.5',
     },
     {
-        pricetag: '1.5',
+      priceTag: 'Double Chocolate',
+      priceValue: '1.5',
     },
-];
+  ];
 
-function updatePrice(price){
-     const base = '2.49';
-     priceUpdate.type = Number(base)+ Number(price.pricetag);
-     console.log(priceUpdate.type);
-    };
-    
-    function onSelectValueChange() {
-        console.log('You selected' + this.value);
-        let priceIndex = parseInt(this.value);
-        let displayRoll = rollprice[priceIndex];
-    
-        updatePrice(displayRoll);
-    }
+for(var i = 0; i < rollprice.length; i++)
+{
+let selectElement = document.querySelector('#glazingOptions');
+var option = document.createElement("option");
+option.text = rollprice[i].priceTag;
+option.value= i;
+selectElement.add(option);
+};
 
-    const priceUpdate = {
-         type: '2.49',
-         pack:'1',
-    }
-    
-    let selectElement = document.querySelector('#glazingOptions');
-    selectElement.addEventListener('change', onSelectValueChange);
-    
+
+function updatePrice(price){ 
+    const base = '2.49';
+    priceUpdate.type = Number(base)+ Number(price.priceValue);
+    console.log(priceUpdate.type);
+   };
+   
+   function onSelectValueChange() {
+       console.log('You selected' + this.priceValue);
+       let priceIndex = parseInt(this.value);
+       let displayRoll = rollprice[priceIndex];
+       console.log(displayRoll);
+   
+       updatePrice(displayRoll);
+   }
+
+   const priceUpdate = {
+        type: '2.49',
+        pack:'1',
+   }
+   
+   let selectElement = document.querySelector('#glazingOptions');
+   selectElement.addEventListener('change', onSelectValueChange);
+   
+
 
         let packprice = [
             {
+                packTag: '1',
                 packnumber: '1',
             },
             {
+                packTag: '3',
                 packnumber: '3',
             },
             {
+                packTag: '6',
                 packnumber: '5',
             },
-            {
+            { 
+                packTag: '12',
                 packnumber: '10',
             },
         ];
-    
-    
-    
-    function displayFinalPrice(pack){
-        let finalPriceElement = document.querySelector('#check-out-final');
-        priceUpdate.pack = Number(pack.packnumber);
-        console.log(priceUpdate.pack);
-        let finalPrice = priceUpdate.type * priceUpdate.pack;
-        finalPriceElement.innerText = finalPrice.toFixed(2);
+        
+        for(var i = 0; i < rollprice.length; i++)
+        {
+        let selectElement = document.querySelector('#packOptions');
+        var option = document.createElement("option");
+        option.text = packprice[i].packTag;
+        option.value= i;
+        selectElement.add(option);
         };
-        
-        function onSelectPackValueChange() {
-            console.log('You selected' + this.value);
-            let priceIndex = parseInt(this.value);
-            let displayPack = packprice[priceIndex];
-        
-            displayFinalPrice(displayPack);
-        }
-        
-        let selectPackElement = document.querySelector('#packOptions');
-        selectPackElement.addEventListener('change', onSelectPackValueChange);
+   
+   
+   
+   function displayFinalPrice(pack){
+       let finalPriceElement = document.querySelector('#check-out-final');
+       priceUpdate.pack = Number(pack.packnumber);
+       console.log(priceUpdate.pack);
+       let finalPrice = priceUpdate.type * priceUpdate.pack;
+       finalPriceElement.innerText = finalPrice.toFixed(2);
+       };
+       
+       function onSelectPackValueChange() {
+           console.log('You selected' + this.value);
+           let priceIndex = parseInt(this.value);
+           let displayPack = packprice[priceIndex];
+       
+           displayFinalPrice(displayPack);
+       }
+       
+       let selectPackElement = document.querySelector('#packOptions');
+       selectPackElement.addEventListener('change', onSelectPackValueChange, onSelectValueChange);
+
