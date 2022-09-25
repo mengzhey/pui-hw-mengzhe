@@ -31,8 +31,11 @@ selectElement.add(option);
 function updatePrice(price){ 
     const base = '2.49';
     priceUpdate.type = Number(base)+ Number(price.priceValue);
-    console.log(priceUpdate.type);
-   };
+    let finalPriceElement = document.querySelector('#check-out-final');
+    console.log(priceUpdate.finalPack);
+    let finalPrice = priceUpdate.finalPack * priceUpdate.type;
+    finalPriceElement.innerText = finalPrice.toFixed(2);
+    };
    
    function onSelectValueChange() {
        console.log('You selected' + this.priceValue);
@@ -43,14 +46,14 @@ function updatePrice(price){
        updatePrice(displayRoll);
    }
 
-  let priceUpdate = {
+  const priceUpdate = {
         type: '2.49',
-        pack: '1',
+        finalPack: '1',
    }
    
    let selectElement = document.querySelector('#glazingOptions');
    selectElement.addEventListener('change', onSelectValueChange);
-   selectElement.addEventListener('change', onSelectPackValueChange);
+
 
 
         let packprice = [
@@ -85,9 +88,9 @@ function updatePrice(price){
    
    function displayFinalPrice(pack){
        let finalPriceElement = document.querySelector('#check-out-final');
-       priceUpdate.pack = Number(pack.packnumber);
-       console.log(priceUpdate.pack);
-       let finalPrice = priceUpdate.type * priceUpdate.pack;
+       priceUpdate.finalPack =  Number(pack.packnumber);
+       console.log(priceUpdate.finalPack);
+       let finalPrice = priceUpdate.finalPack * priceUpdate.type;
        finalPriceElement.innerText = finalPrice.toFixed(2);
        };
        
