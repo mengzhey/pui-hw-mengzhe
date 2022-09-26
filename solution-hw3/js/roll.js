@@ -104,4 +104,3 @@ function updatePrice(price){
        
        let selectPackElement = document.querySelector('#packOptions');
        selectPackElement.addEventListener('change', onSelectPackValueChange);
-
