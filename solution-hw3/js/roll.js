@@ -56,7 +56,7 @@ function updatePrice(price){
 
 
 
-        let packrice = [
+        let packPrice = [
             {
                 packTag: '1',
                 packNumber: '1',

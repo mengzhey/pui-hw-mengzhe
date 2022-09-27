@@ -262,7 +262,13 @@ button:hover{
 .bcart {
         width: 100px;
         height: 50px;
-        position: static;
+
+        background-color: white;
+}
+
+#check-out-final {
+        width: 100px;
+        height: 50px;
 
         background-color: white;
 }
