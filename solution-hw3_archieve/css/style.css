@@ -1,0 +1,269 @@
+body {
+        font-family: 'Courier New', Courier, monospace;
+        border: 1px solid black;
+        padding-bottom: 20px;
+
+}
+.home{
+        height: 900px;
+}
+#logo-content {
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-start;
+        column-gap: 60px;
+       
+}
+
+.nav-content {
+        display: flex;
+        flex-direction: column;
+}
+
+
+.logo {  
+         width: 450px;
+
+         flex-shrink: 0;
+
+         margin-top: 50px;
+        
+         padding-bottom: 20px;
+  }
+
+
+nav {  
+        margin-top: 130px;
+        box-sizing: border-box;
+        border-bottom: solid 3px;
+        
+
+        display: flex;
+        width: 670px;
+        height: 50px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+}
+
+
+nav > a { 
+        border: none;
+        margin: 40px;
+        margin-right: 15px;
+        justify-content: flex-end;
+        align-items: center;
+  
+        font-size: 25px;
+        
+}
+
+.slogan {
+         font-size: 25px;
+         margin-top: 45px;
+
+}
+nav a:link{
+         text-decoration: none;
+         color: black;
+}
+
+nav a:hover {
+         text-decoration: none;
+         background: yellow;        
+}
+
+.nav-content a:active {
+        text-decoration: none;
+        color:black;
+}
+
+.nav-content a:visited {
+        text-decoration: none;
+        color: black;
+}
+
+
+.collection {
+        column-gap: 100px;
+        row-gap: 50px;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        justify-content:space-evenly;
+        align-items: center;
+
+}
+
+.collection p {
+        line-height: 20px;
+}
+
+.glink  {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+       
+        justify-items: left; 
+        font-size: 20px; 
+}
+
+.collection img {
+        width: 300px;
+
+        border: 3px solid black;
+} 
+
+.glink a:hover {
+        background-color: yellow;        
+}
+
+.glink img:hover {
+        width: 300px;
+        opacity: 0.5;
+        background-color:  yellow;
+}
+
+.glink a:link {
+        text-decoration-line: underline;
+        color: black;
+}
+
+
+.glink a:visited {
+        color: black;
+}
+
+.productdetail {
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+
+        align-items: flex-start;
+
+        column-gap: 50px;
+
+}
+
+.productdetail img {
+        width: 550px;
+
+        border: 1.5px solid black;
+
+}
+
+select {
+        width: 15em;
+        row-gap: 100px;
+
+        font-size: 18px;
+        border: 2px solid black;
+}
+
+.selection {
+        display: flex;
+        flex-direction: column;
+
+        align-content: space-between;
+
+        row-gap: 40px;
+
+        font-size: 22px;
+}
+
+.selection p {
+        line-height: 22px;
+}
+
+
+button:hover{
+        background-color: yellow;
+}
+
+.cartcollection {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 500px;
+}
+
+.cartcollection img {
+       width: 100px;
+
+        border: 2px solid black;
+} 
+
+.clink {
+        height: 200px;
+        display: flex;
+        flex-direction: row;
+
+        line-height: 20px;
+
+        align-items: flex-start;
+        column-gap: 30px;
+
+}
+
+.clink-1 {
+        height: 200px;
+        display: flex;
+        flex-direction: row;
+
+        line-height: 20px;
+
+        align-items: flex-start;
+        column-gap: 30px;
+
+        border-bottom: 3px solid black;
+
+}
+       
+.cart {
+        width: 400px;
+        margin-top: 10px;
+
+        font-size: 22px;
+}
+
+.price {
+        font-size: 22px;
+        margin-top: 30px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: flex-end;
+}
+
+.line { 
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+        
+
+        margin-left: 130px;
+        column-gap: 30px;
+}
+
+
+.checkout {  
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        column-gap: 100px;
+
+     }
+
+.bcart {
+        width: 100px;
+        height: 50px;
+        position: static;
+
+        background-color: white;
+}
+
