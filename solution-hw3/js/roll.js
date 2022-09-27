@@ -1,5 +1,5 @@
 let select = document.querySelector('#glazingOptions');
-let rollprice = [
+let rollPrice = [
     {
       priceTag: 'Keep Origin',
       priceValue: '0',
@@ -18,11 +18,11 @@ let rollprice = [
     },
   ];
 
-for(var i = 0; i < rollprice.length; i++)
+for(var i = 0; i < rollPrice.length; i++)
 {
 let selectElement = document.querySelector('#glazingOptions');
 var option = document.createElement("option");
-option.text = rollprice[i].priceTag;
+option.text = rollPrice[i].priceTag;
 option.value= i;
 selectElement.add(option);
 };
@@ -40,7 +40,7 @@ function updatePrice(price){
    function onSelectValueChange() {
        console.log('You selected' + this.priceValue);
        let priceIndex = parseInt(this.value);
-       let displayRoll = rollprice[priceIndex];
+       let displayRoll = rollPrice[priceIndex];
        console.log(displayRoll);
    
        updatePrice(displayRoll);
@@ -56,30 +56,30 @@ function updatePrice(price){
 
 
 
-        let packprice = [
+        let packrice = [
             {
                 packTag: '1',
-                packnumber: '1',
+                packNumber: '1',
             },
             {
                 packTag: '3',
-                packnumber: '3',
+                packNumber: '3',
             },
             {
                 packTag: '6',
-                packnumber: '5',
+                packNumber: '5',
             },
             { 
                 packTag: '12',
-                packnumber: '10',
+                packNumber: '10',
             },
         ];
         
-        for(var i = 0; i < rollprice.length; i++)
+        for(var i = 0; i < packPrice.length; i++)
         {
         let selectElement = document.querySelector('#packOptions');
         var option = document.createElement("option");
-        option.text = packprice[i].packTag;
+        option.text = packPrice[i].packTag;
         option.value= i;
         selectElement.add(option);
         };
@@ -88,7 +88,7 @@ function updatePrice(price){
    
    function displayFinalPrice(pack){
        let finalPriceElement = document.querySelector('#check-out-final');
-       priceUpdate.finalPack =  Number(pack.packnumber);
+       priceUpdate.finalPack =  Number(pack.packNumber);
        console.log(priceUpdate.finalPack);
        let finalPrice = priceUpdate.finalPack * priceUpdate.type;
        finalPriceElement.innerText = finalPrice.toFixed(2);
@@ -97,10 +97,11 @@ function updatePrice(price){
        function onSelectPackValueChange() {
            console.log('You selected' + this.value);
            let priceIndex = parseInt(this.value);
-           let displayPack = packprice[priceIndex];
+           let displayPack = packPrice[priceIndex];
        
            displayFinalPrice(displayPack);
        }
        
        let selectPackElement = document.querySelector('#packOptions');
        selectPackElement.addEventListener('change', onSelectPackValueChange);
+
