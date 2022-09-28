@@ -24,3 +24,22 @@ const rolls = {
         "imageFile": "strawberry-cinnamon-roll.jpg"
     }    
 };
+
+    
+    const queryString = window.location.search;
+    console.log(queryString);
+    const params = new URLSearchParams(queryString);
+    console.log(params);
+    const rollType = params.get('roll');
+    console.log(rollType);
+   
+    let objectRoll = rolls[rollType];
+    console.log(objectRoll);
+    const headerElement = document.querySelector('.slogan');
+    headerElement.innerText = rollType + ' Cinnomon Roll';
+    const headerPriceElement = document.querySelector('#check-out-final');
+    headerPriceElement.innerText = objectRoll.basePrice;
+    const rollImage = document.querySelector('#roll-image');
+    rollImage.src = './assets/'+ objectRoll.imageFile; 
+ 
+    console.log(objectRoll.basePrice);
