@@ -25,6 +25,23 @@ const rolls = {
     }    
 };
 
+const cart = [
+    class Roll {
+        constructor(rollType, rollGlazing, packSize, basePrice) {
+            this.type = rollType;
+            this.glazing =  rollGlazing;
+            this.size = packSize;
+            this.basePrice = basePrice;  
+    } 
+    }      
+];
+     const btnAdd = document.querySelector('.bcart');
+     btnAdd.onclick = function() {printArray()};
+
+     function printArray() {
+     console.log(cart);
+      }
+
     
     const queryString = window.location.search;
     console.log(queryString);
@@ -43,3 +60,6 @@ const rolls = {
     rollImage.src = './assets/'+ objectRoll.imageFile; 
  
     console.log(objectRoll.basePrice);
+
+
+    
