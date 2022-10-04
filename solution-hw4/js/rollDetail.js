@@ -96,9 +96,6 @@ function updatePrice(price){
 
         console.log(rollPrice[priceIndex].priceTag);
 
-        // TODO: change priceIndex and priceTag names to glazing or something
-
-        // Store the selected glazing in global variable
         currentRollGlazing = rollPrice[priceIndex].priceTag;
 
 
