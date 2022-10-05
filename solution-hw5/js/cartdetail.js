@@ -114,10 +114,17 @@ function updateElement(cartRoll) {
     const cartTitleElement = cartRoll.element.querySelector('.cartTitle');
     const cartImageElement = cartRoll.element.querySelector('#cart-image');
 
+    const btnDelete = cartRoll.element.querySelector('#removeIcon')
+    btnDelete.addEventListener('click', () => {
+        deleteNote(cartRoll);
+    });
     priceElement.innerText = cartRoll.rollCalPrice;
     packElement.innerText = 'Pack Size:' + cartRoll.size;
     cartTitleElement.innerText = cartRoll.type + ' Cinnammon Roll';
     cartImageElement.src = cartRoll.rollimageURL;
-    
+}
 
+function deleteNote(cartRoll) {
+    cartRoll.element.remove();
+    rollSet.delete(cartRoll);
 }
