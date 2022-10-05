@@ -191,7 +191,7 @@ button:hover{
 }
 
 .cartcollection img {
-       width: 100px;
+       width: 150px;
 
         border: 2px solid black;
 } 
@@ -201,25 +201,17 @@ button:hover{
         display: flex;
         flex-direction: row;
 
-        line-height: 20px;
+        line-height: 18px;
 
         align-items: flex-start;
         column-gap: 30px;
+        
 
 }
-
 .clink-1 {
-        height: 200px;
-        display: flex;
-        flex-direction: row;
-
-        line-height: 20px;
-
-        align-items: flex-start;
-        column-gap: 30px;
+        width: 650px;
 
         border-bottom: 3px solid black;
-
 }
        
 .cart {
@@ -230,13 +222,17 @@ button:hover{
 }
 
 .cartPrice {
+        margin-left: 100px;
+        width: 120px;
         font-size: 22px;
         margin-top: 30px;
 
         display: flex;
         flex-direction: column;
 
-        align-items: flex-end;
+        justify-items: flex-start;
+
+        
 }
 
 .line { 
@@ -273,3 +269,23 @@ button:hover{
         background-color: white;
 }
 
+.cartTitle {
+        font-size: 22px;
+        line-height: 20px;
+
+}
+
+.cartGlazing {
+        font-size: 22px;
+
+}
+
+.cartPack {
+        font-size: 22px;
+
+}
+
+
+#totalText {
+        font-size: 24px;
+}
