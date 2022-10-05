@@ -1,4 +1,6 @@
 
+
+
 let rollGlazingPrice = {
     "Original": {
         "price": 0,
@@ -33,37 +35,42 @@ let cartCalPrice = {
 
 class Roll {
 
-    constructor(rollType, rollGlazing, packSize, rollPrice, rollCalPrice) {
+    constructor(imageURL,rollType, rollGlazing, packSize, rollPrice, rollCalPrice) {
+        this.rollimageURL = imageURL;
         this.type = rollType;
         this.glazing = rollGlazing;
         this.size = packSize;
         this.basePrice = rollPrice;
         const finalCartPrice = (rollGlazingPrice[rollGlazing].price+ Number(rollPrice)) * cartCalPrice[packSize].pack;
         this.rollCalPrice = finalCartPrice.toFixed(2);
+
+        this.element = null;
     
     }
 }
 
-
 const rollSet = new Set();
     
 
-function addNewRoll(rollType, rollGlazing, packSize, rollPrice, rollCalPrice){
+function addNewRoll(imageURL, rollType, rollGlazing, packSize, rollPrice, rollCalPrice){
    
-   const cartRoll = new Roll(rollType, rollGlazing, packSize, rollPrice, rollCalPrice);
+   const cartRoll = new Roll(imageURL,rollType, rollGlazing, packSize, rollPrice, rollCalPrice);
    rollSet.add(cartRoll);
    return cartRoll;    
 }
 
 const cartOriginal = addNewRoll(
+    './assets/original-cinnamon-roll.jpg',
     'Original',
     'Sugar-milk',
     '1',
     '2.49',
+    
 
 );
 
 const cartWalnut = addNewRoll(
+    './assets/walnut-cinnamon-roll.jpg',
     'Walnut',
     'Vanilla-milk',
     '12',
@@ -71,6 +78,7 @@ const cartWalnut = addNewRoll(
 );
 
 const cartRaisin = addNewRoll(
+    './assets/raisin-cinnamon-roll.jpg',
     'Raisin',
     'Sugar-milk',
     '3',
@@ -78,8 +86,38 @@ const cartRaisin = addNewRoll(
 );
 
 const cartApple = addNewRoll(
+    './assets/apple-cinnamon-roll.jpg',
     'Apple',
     'Original',
     '3',
     '3.49',
 );
+
+for (const cartRoll of rollSet) {
+    console.log(cartRoll);
+    createElement(cartRoll);
+  }
+
+function createElement(cartRoll){
+    const template = document.querySelector('#roll-template')
+    const clone = template.content.cloneNode(true);
+    cartRoll.element = clone.querySelector('.clink');
+
+    const rollListElement = document.querySelector('.cartcollection');
+    rollListElement.prepend(cartRoll.element);
+    updateElement(cartRoll);
+}
+
+function updateElement(cartRoll) {
+    const priceElement = cartRoll.element.querySelector('.cartPrice');
+    const packElement = cartRoll.element.querySelector('.cartPack');
+    const cartTitleElement = cartRoll.element.querySelector('.cartTitle');
+    const cartImageElement = cartRoll.element.querySelector('#cart-image');
+
+    priceElement.innerText = cartRoll.rollCalPrice;
+    packElement.innerText = 'Pack Size:' + cartRoll.size;
+    cartTitleElement.innerText = cartRoll.type + ' Cinnammon Roll';
+    cartImageElement.src = cartRoll.rollimageURL;
+    
+
+}
