@@ -39,20 +39,24 @@ class Roll {
         this.size = packSize;
         this.basePrice = rollPrice;
         const finalCartPrice = (rollGlazingPrice[rollGlazing].price+ Number(rollPrice)) * cartCalPrice[packSize].pack;
-        this.rollCalPrice = finalCartPrice.toFixed(2);
+        rollCalPrice = finalCartPrice.toFixed(2);
+        this.calPrice = rollCalPrice;
 
         this.element = null;
     
     }
 }
 
-const rollSet = new Array();
+
+
+const rollSet = new Set ();
+
     
 
 function addNewRoll(imageURL, rollType, rollGlazing, packSize, rollPrice, rollCalPrice){
    
    const cartRoll = new Roll(imageURL,rollType, rollGlazing, packSize, rollPrice, rollCalPrice);
-   rollSet.push(cartRoll);
+   rollSet.add(cartRoll);
    return cartRoll;    
 }
 
@@ -65,6 +69,7 @@ function createElement(cartRoll){
 
     const rollListElement = document.querySelector('.cartcollection');
     rollListElement.prepend(cartRoll.element);
+
     updateElement(cartRoll);
 }
 
@@ -74,16 +79,20 @@ function updateElement(cartRoll) {
     const cartTitleElement = cartRoll.element.querySelector('.cartTitle');
     const cartImageElement = cartRoll.element.querySelector('#cart-image');
     const glazingElement = cartRoll.element.querySelector('.cartGlazing');
-    // const totalPriceElement = document.querySelector('.price');
+    
+
 
     const btnDelete = cartRoll.element.querySelector('#removeIcon')
     btnDelete.addEventListener('click', () => {
-        deleteRoll(cartRoll);
+        deleteRoll(cartRoll);   
+        console.log(rollSet);
+        updatePrice(cartRoll);
+        
     });
+
     
-  
-    // totalPriceElement.innerText = totalFinalPrice;
-    priceElement.innerText = cartRoll.rollCalPrice;
+    
+    priceElement.innerText = cartRoll.calPrice;
     packElement.innerText = 'Pack Size:' + cartRoll.size;
     cartTitleElement.innerText = cartRoll.type + ' Cinnammon Roll';
     cartImageElement.src = cartRoll.rollimageURL;
@@ -91,18 +100,16 @@ function updateElement(cartRoll) {
     
 }
 
+
 function deleteRoll(cartRoll) {
     cartRoll.element.remove();
-    rollSet.pop(cartRoll);
+    rollSet.delete(cartRoll);
 }
 
-// function sumRoll(cartRoll) {
-//   const totalFinalPrice = cartRoll.rollCalPrice;
-  
-//   const totalPriceElement = document.querySelector('.price');
-//   totalPriceElement.innerText = totalFinalPrice;
-  
-// }
+for (const item of rollSet) {
+    totalPrice = item.calPrice;
+    console.log(totalPrice);
+}
 
 const cartOriginal = addNewRoll(
     './assets/original-cinnamon-roll.jpg',
@@ -136,8 +143,27 @@ const cartApple = addNewRoll(
     '3.49',
 );
 
+
 for (const cartRoll of rollSet) {
     console.log(cartRoll);
+
     createElement(cartRoll);
   }    
 
+
+function updatePrice () {
+    let totalPrice = 0;
+    
+
+    for (const item of rollSet) {
+        console.log(item.calPrice)
+        totalPrice = Number(totalPrice) + Number(item.calPrice);
+    }
+    console.log(totalPrice);
+    printTotalPrice = totalPrice.toFixed(2);
+    const totalPriceElement = document.querySelector('.price');
+    totalPriceElement.innerText = printTotalPrice;
+}
+
+
+updatePrice ();

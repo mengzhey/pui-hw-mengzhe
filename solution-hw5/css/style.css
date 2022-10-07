@@ -289,3 +289,15 @@ button:hover{
 #totalText {
         font-size: 24px;
 }
+
+#removeIcon {
+        text-decoration: underline;
+        color: black;
+        background-color: none;
+        border: none;
+}
+
+.price{
+        font-size: 24px;
+}
+
