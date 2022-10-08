@@ -292,8 +292,13 @@ button:hover{
 
 #removeIcon {
         text-decoration: underline;
-        color: black;
-        background-color: none;
+        background-color: white;
+        border: none;
+}
+
+#removeIcon:active{
+        text-decoration: underline;
+        background-color: white;
         border: none;
 }
 
