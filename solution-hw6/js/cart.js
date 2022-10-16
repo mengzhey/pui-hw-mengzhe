@@ -104,13 +104,21 @@ function updateElement(cartRoll) {
 function deleteRoll(cartRoll) {
     cartRoll.element.remove();
     rollSet.delete(cartRoll);
+    saveToLocalStorage();
 }
-   
+
+function saveToLocalStorage() {
+  const cartArray = Array.from(rollSet);
+  const cartString = JSON.stringify(cartArray);
+  console.log(cartString);
+  localStorage.setItem('storedRoll', cartString);
+} 
+
+
 
 function updatePrice () {
     let totalPrice = 0;
     
-
     for (const item of rollSet) {
         console.log(item.calPrice)
         totalPrice = Number(totalPrice) + Number(item.price);
@@ -120,6 +128,5 @@ function updatePrice () {
     const totalPriceElement = document.querySelector('.price');
     totalPriceElement.innerText = printTotalPrice;
 }
-
 
 updatePrice ();
