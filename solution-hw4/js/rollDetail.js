@@ -176,11 +176,6 @@ class Roll {
         this.size = packSize;
         this.basePrice = basePrice;  
 
-        // rollType = this.type;
-        // priceUpdate.type = this.glazing;
-        // priceUpdate.finalPack = this.size;
-        // objectRoll.basePrice = this.basePrice;
-
 
 } 
 
