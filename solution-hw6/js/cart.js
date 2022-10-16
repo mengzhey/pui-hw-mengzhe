@@ -1,3 +1,30 @@
+const rolls = {
+  "Original": {
+      "basePrice": 2.49,
+      "imageFile": "original-cinnamon-roll.jpg"
+  },
+  "Apple": {
+      "basePrice": 3.49,
+      "imageFile": "apple-cinnamon-roll.jpg"
+  },
+  "Raisin": {
+      "basePrice": 2.99,
+      "imageFile": "raisin-cinnamon-roll.jpg"
+  },
+  "Walnut": {
+      "basePrice": 3.49,
+      "imageFile": "walnut-cinnamon-roll.jpg"
+  },
+  "Double-Chocolate": {
+      "basePrice": 3.99,
+      "imageFile": "double-chocolate-cinnamon-roll.jpg"
+  },
+  "Strawberry": {
+      "basePrice": 3.99,
+      "imageFile": "strawberry-cinnamon-roll.jpg"
+  }    
+};
+
 class Roll {
   constructor(rollType, rollGlazing, packSize, basePrice, finalPrice) {
       this.type = rollType;
@@ -6,17 +33,19 @@ class Roll {
       this.basePrice = basePrice; 
       this.price= finalPrice;  
       this.element = null; 
+      this.rollimageURL = rolls[rollType].imageFile;
 } 
 }   
 
+const rollSet = new Set();
+
 function addNewRoll(rollType, rollGlazing, packSize, rollPrice, rollCalPrice){
-   
   const cartRoll = new Roll(rollType, rollGlazing, packSize, rollPrice, rollCalPrice);
   rollSet.add(cartRoll);
   return cartRoll;    
 }
 
-let cart = new Array ();
+
 
 function retrieveFromLocalStorage() {
   const cartString = localStorage.getItem('storedRoll');
@@ -58,38 +87,25 @@ function updateElement(cartRoll) {
         
     });
 
-    priceElement.innerText = cartRoll.calPrice;
+    priceElement.innerText = cartRoll.price;
     packElement.innerText = 'Pack Size:' + cartRoll.size;
     cartTitleElement.innerText = cartRoll.type + ' Cinnammon Roll';
-    cartImageElement.src = cartRoll.rollimageURL;
+    cartImageElement.src = './assets/' + cartRoll.rollimageURL;
     glazingElement.innerText = cartRoll.glazing;
     
 }
-
 
   
   if (localStorage.getItem('storedRoll') != null) {
     retrieveFromLocalStorage();
   }
 
+
 function deleteRoll(cartRoll) {
     cartRoll.element.remove();
     rollSet.delete(cartRoll);
 }
-
-for (const item of rollSet) {
-    totalPrice = item.calPrice;
-    console.log(totalPrice);
-}
-
-
-
-for (const cartRoll of rollSet) {
-    console.log(cartRoll);
-
-    createElement(cartRoll);
-  }    
-
+   
 
 function updatePrice () {
     let totalPrice = 0;
@@ -97,7 +113,7 @@ function updatePrice () {
 
     for (const item of rollSet) {
         console.log(item.calPrice)
-        totalPrice = Number(totalPrice) + Number(item.calPrice);
+        totalPrice = Number(totalPrice) + Number(item.price);
     }
     console.log(totalPrice);
     printTotalPrice = totalPrice.toFixed(2);
