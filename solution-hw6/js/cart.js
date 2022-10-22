@@ -50,16 +50,22 @@ function addNewRoll(rollType, rollGlazing, packSize, rollPrice, rollCalPrice){
 function retrieveFromLocalStorage() {
   const cartString = localStorage.getItem('storedRoll');
   const cart = JSON.parse(cartString);
-  console.log(cart);
+  const results = cart.filter(element => {
+    return element !== null;
+  });
+  console.log(results);
 
-  for (const rollData of cart) {
+  for (const rollData of results) {
+    console.log(rollData.type);
     const cartRoll = addNewRoll(rollData.type, rollData.glazing, rollData.size, rollData.basePrice, rollData.price
     );
-
+ 
     createElement(cartRoll);
   }
 }
-
+if (localStorage.getItem('storedRoll') != null) {
+    retrieveFromLocalStorage();
+  }
 
 function createElement(cartRoll){
     const template = document.querySelector('#roll-template')
@@ -96,9 +102,7 @@ function updateElement(cartRoll) {
 }
 
   
-  if (localStorage.getItem('storedRoll') != null) {
-    retrieveFromLocalStorage();
-  }
+  
 
 
 function deleteRoll(cartRoll) {
@@ -110,7 +114,7 @@ function deleteRoll(cartRoll) {
 function saveToLocalStorage() {
   const cartArray = Array.from(rollSet);
   const cartString = JSON.stringify(cartArray);
-  console.log(cartString);
+  console.log(cartArray);
   localStorage.setItem('storedRoll', cartString);
 } 
 
