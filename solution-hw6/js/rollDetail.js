@@ -193,6 +193,7 @@ retrieveFromLocalStorage();
 function addCart() {
     const rollOne = new Roll(rollType, currentRollGlazing, currentRollPackSize, objectRoll.basePrice, finalPrice);
     cartFinal.push(rollOne);
+    console.log(cartFinal);
     saveToLocalStorage();
 }
 
